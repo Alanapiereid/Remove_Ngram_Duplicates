@@ -1,8 +1,5 @@
 from nltk import ngrams
 from collections import Counter
-sentence = "The thing the thing is I hate you so much, you're amazing"
-
-# sentence = sentence.lower()
 
 def get_grams(text, n):
     text = text.lower()
@@ -23,19 +20,24 @@ def get_grams(text, n):
             
     text = text.replace(drop_words[0], "")
     text = text.replace("  ", ' ' + drop_words[0] + ' ')
-    print(text)
+    return text.strip().capitalize()
 
-try:
-    get_grams(sentence, 4)
-except IndexError:
-    pass
+def attempt(text):
+    try:
+        print(get_grams(text, 4))
+    except IndexError:
+            pass
 
-try:
-    get_grams(sentence, 3)
-except IndexError:
-    pass
+    try:
+        print(get_grams(text, 3))
+    except IndexError:
+        pass
 
-try:
-    get_grams(sentence, 2)
-except IndexError:
-    pass
+    try:
+        print(get_grams(text, 2))
+    except IndexError:
+        pass
+
+sentence = "The thing the thing is I hate you so much, you're amazing"
+
+attempt(sentence)
