@@ -10,14 +10,11 @@ def get_grams(text, n):
         collection.append(' '.join(x))
 
     counter = Counter
-
     obj = counter(collection)
-
     drop_words = []
     for key in obj:
         if obj[key] > 1:
-            drop_words.append(key)
-            
+            drop_words.append(key)          
     text = text.replace(drop_words[0], "")
     text = text.replace("  ", ' ' + drop_words[0] + ' ')
     return text.strip().capitalize()
@@ -27,12 +24,10 @@ def attempt(text):
         print(get_grams(text, 4))
     except IndexError:
             pass
-
     try:
         print(get_grams(text, 3))
     except IndexError:
         pass
-
     try:
         print(get_grams(text, 2))
     except IndexError:
