@@ -10,29 +10,39 @@ def get_grams(text, n):
         collection.append(' '.join(x))
 
     counter = Counter
+
     obj = counter(collection)
+
     drop_words = []
     for key in obj:
         if obj[key] > 1:
-            drop_words.append(key)          
+            drop_words.append(key)
+            
     text = text.replace(drop_words[0], "")
     text = text.replace("  ", ' ' + drop_words[0] + ' ')
     return text.strip().capitalize()
 
 def attempt(text):
+    the_list = []
     try:
-        print(get_grams(text, 4))
+        the_list.append(get_grams(text, 4))
     except IndexError:
             pass
     try:
-        print(get_grams(text, 3))
+        the_list.append(get_grams(text, 3))
     except IndexError:
         pass
     try:
-        print(get_grams(text, 2))
+        the_list.append(get_grams(text, 2))
     except IndexError:
         pass
+    return the_list
 
-sentence = "The thing the thing is I hate you so much, you're amazing"
+sentence = "The thing the thing is I hate you so much, it's amazing"
+sentence2 = "The thing is really the thing is really I hate you so much, it's amazing"
 
-attempt(sentence)
+print(attempt(sentence)[0])
+# The thing is i hate you so much, it's amazing
+print(attempt(sentence2)[0])
+# The thing is really i hate you so much, it's amazing
+
