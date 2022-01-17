@@ -1,6 +1,6 @@
 # Remove_Ngram_Duplicates
 
-I once had this as an interview question: remove a duplicate n-gram in a range of 2 to 4 from a string.
+I once had this as an interview question: remove a duplicate n-gram in a range of len > 1 < 5 from a string.
 
 So for example: "I love you I love you so much right now".
 
